@@ -32,4 +32,33 @@ where d.department_id>50;
 
 --set10
 
-select*from employees;
+--select*from employees;
+
+/*1.Update the "employees_backup" table by giving a 10% salary increase to
+those employees whose job_id is 'SA_REP' and who were hired after the year 2005.*/
+
+update employees_backup set salary=salary*1.1
+where job_id ='SA-REP' and hire_date>'01-Jan-2005';
+
+/*2. Find the median salary for the 'IT_PROG' job in the "employees" table.*/
+
+--
+
+/*3. List the employees in the "employees" table who have been hired in the 
+last 365 days.*/
+select hire_date from employees
+order by hire_date desc;
+
+select*from employees where hire_date between '01-Jan-2008' and '31-Dec-2008';
+
+/*4Convert the hire_date in the "employees" table to 'Day, DD-Month-YYYY' format.*/
+
+select to_char (hire_date,'Day, DD-Month-YYYY') from employees;
+
+/*5.Display the employees' last names and the length of the names from 
+the "employees" table. Order the result 
+by the length of the names in descending order.*/
+
+select length(concat(concat(first_name, ' '),last_name)) as names_length from employees
+order by names_length desc ;
+
